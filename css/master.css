@@ -1,0 +1,12 @@
+.radio {
+  border: 2px dotted green;
+}
+.check{
+  margin: 5px
+}
+fieldset {
+  padding: 20px
+}
+label:checked{
+  color: red
+}

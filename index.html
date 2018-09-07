@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Unofficial Matterport URL builder</title>
+    <link rel="stylesheet" href="css/master.css">
+    <script src="js/script.js"></script>
+  </head>
+  <body>
+    <div >
+      <p>Paste link to your Matterport space:</p>
+      <input id="userInput" type="text"></input>
+    </div>
+    <form>
+      <fieldset>
+        <legend>Launching 3D Showcase</legend>
+        <fieldset class="radio">
+          <legend>Help</legend>
+          <div>
+            <div><input type="radio" id="helpnull" name="help" value="null" checked>
+            <label for="helpnull">Show help for new users (those who have never opened a Matterport Space before).</label></div>
+            <div><input type="radio" id="help0" name="help" value="0">
+            <label for="help0">Do not show help at all.</label></div>
+            <div><input type="radio" id="help1" name="help" value="1">
+            <label for="help1">Always show help when the Matterport Space opens.</label></div>
+            <div><input type="radio" id="help2" name="help" value="2">
+            <label for="help2">Always show help when the Matterport Space opens. More concise help text than &help=1.</label></div>
+          </div>
+        </fieldset>
+          <div class="check"><label><input type="checkbox" id="nt">Only for mobile. If a Matterport Space is embedded on a webpage, then when user presses the play button, 3D Showcase opens in a new browser tab.</label></div>
+          <div class="check"><label><input type="checkbox" id="play">Automatically opens the Matterport Space when the iframe loads on the page. If the 3D Showcase is opened via a link (not embedded in an iframe), this option is chosen automatically.</label></div>
+          <div class="check"><label><input type="checkbox" id="qs">Enable Quickstart (when the Matterport Space first opens, go straight into Inside View). Learn more. Only works if Start Position is Inside View.</label></div>
+          <div><label><input type="number" id="ts" value="-1">Number of seconds after initial fly-in before the Guided Tour automatically starts. Help is not shown. Set to a negative number to not start the Guided Tour.</label></div>
+        </fieldset>
+      </fieldset>
+      <fieldset>
+        <legend>Visibility</legend>
+          <div class="check"><label><input type="checkbox" id="brand">Hide 'Presented By' details when Space opens. Hide contact details in the About Panel (top-left grey corner of 3D Showcase).</label></div>
+          <div class="check"><label><input type="checkbox" id="dh">Hide Dollhouse View in introductory fly-in. Hide Dollhouse Button in the bottom left corner of the 3D Showcase UI. Hides Dollhouse and Floorplan view Snapshots in the Highlight Reel.</label></div>
+          <div class="check"><label><input type="checkbox" id="gt">Hide Guided Tour buttons in the bottom left corner of the 3D Showcase UI</label></div>
+          <div class="check"><label><input type="checkbox" id="hr">Hide Highlight Reel at the bottom of the 3D Showcase UI</label></div>
+          <fieldset class="radio">
+            <legend>MLS-friendly</legend>
+            <div>
+              <div><input type="radio" id="mls0" name="mls" value="0" checked>
+              <label for="mls0">Show branding information, links in Mattertag™ Posts, and VR.</label></div>
+              <div><input type="radio" id="mls1" name="mls" value="1">
+              <label for="mls1">Show the MLS-friendly version of the Matterport Space. This removes branding, removes links in Mattertag™ Posts, and removes VR.</label></div>
+              <div><input type="radio" id="mls2" name="mls" value="2">
+              <label for="mls2">Same behavior as &mls=1 but also removes the About Panel in the top-left corner after loading.</label></div>
+            </div>
+          </fieldset>
+          <div><label><input type="checkbox" id="mt">Hide Mattertags and "Mattertag™ Content" toggle in the About Panel</label></div>
+      </fieldset>
+      <fieldset>
+        <legend>User Interface</legend>
+            <div>
+              Choose 3D Showcase UI language:
+              <select id="languages" name="languages">
+              <option value="en">American English (default)</option>
+              <option value="es">Spanish</option>
+              <option value="fr">French</option>
+              <option value="de">German</option>
+              <option value="ru">Russian</option>
+              <option value="cn">Chinese</option>
+              <option value="jp">Japanese</option>
+            </select></div>
+            <div class="check"><label><input type="checkbox" id="floors">Remove the option to switch floors. This treats the Matterport Space as "all one floor".</label></div>
+            <div class="check"><label><input type="checkbox" id="nozoom">Disable zooming in 3D Showcase</label></div>
+            <div class="check"><label><input type="checkbox" id="wh">Ignore scroll wheel input from the mouse. Scroll wheel input will cause the entire webpage to move up and down. This parameter is only valid when the Space is embedded with an iframe.</label></div>
+      </fieldset>
+      <fieldset>
+        <legend>Guided Tours</legend>
+          <div class="check"><label><input type="checkbox" id="guides">Do not show the path to the next highlight.</label></div>
+          <div class="check"><label><input type="checkbox" id="kb">Do not pan when you reach a new highlight in a Guided Tour.</label></div>
+          <div class="check"><label><input type="checkbox" id="lp">Loop back to the beginning once you reach the end.</label></div>
+          <div class="check"><label><input type="checkbox" id="mf">For Guided Tours with walkthrough transitions, use the 3D mesh when transitioning between highlights.</label></div>
+          <div class="check"><label><input type="number" id="st" value="3500"> Number of milliseconds to wait at each highlight during a Guided Tour. Default is 3500 ms.</label></div>
+          <fieldset class="radio">
+            <legend>Space title</legend>
+            <div>
+              <div><input type="radio" id="title0" name="title" value="0">
+              <label for="title0">Space title is not displayed. Top-left about panel not displayed.</label></div>
+              <div><input type="radio" id="title1" name="title" value="1" checked>
+              <label for="title1">Space title is displayed. Top-left about panel is displayed.</label></div>
+              <div><input type="radio" id="title2" name="title" value="2">
+              <label for="title2">Space title is not displayed. Top-left about panel is displayed.</label></div>
+            </div>
+          </fieldset>
+          <fieldset class="radio">
+            <legend>Call to action</legend>
+            <div>
+              <div><input type="radio" id="tourcta0" name="tourcta" value="0">
+              <label for="tourcta0">No call to action at the end of a a Guided Tour</label></div>
+              <div><input type="radio" id="tourcta1" name="tourcta" value="1" checked>
+              <label for="tourcta1">Large call to action at the end of a Guided Tour</label></div>
+              <div><input type="radio" id="tourcta2" name="tourcta" value="2">
+              <label for="tourcta2">Small call to action at the end of a Guided Tour</label></div>
+            </div>
+          </fieldset>
+        </fieldset>
+        <fieldset>
+          <legend>Virtual Reality</legend>
+            <div class="check"><label><input type="checkbox" id="vr">Hide the VR button.</label></div>
+            <div class="check"><label><input type="checkbox" id="vrcoll">Opens the Space in a limited mode by itself. Users cannot navigate to other Spaces in the Matterport VR app. This is the same limited mode that is used in VR Collections. </label></div>
+        </fieldset>
+      </form>
+    <div id="generateButton"><input type="submit" value="Generate" onclick="manipulate()"></div>
+    <p>Your customized URL:</p>
+    <div id="textAreaOutput"><textarea rows="1" id="pageOutput"></textarea></div>
+  </body>
+</html>
